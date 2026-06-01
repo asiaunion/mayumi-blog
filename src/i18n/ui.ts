@@ -1,0 +1,406 @@
+import type { TopicHubKey } from "@/data/topicHubs";
+import { SITE } from "@/config";
+
+export type UiLang = "en" | "ko" | "ja";
+
+type TopicHubCopy = Record<
+  TopicHubKey,
+  { title: string; description: string }
+>;
+
+const ui = {
+  en: {
+    skipToContent: "Skip to content",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    navPosts: "Posts",
+    navTags: "Tags",
+    navContact: "Contact",
+    navAbout: "About",
+    navTopics: "Topics",
+    navArchives: "Archives",
+    navSearch: "Search",
+    themeToggleTitle: "Toggle light & dark",
+    themeToggleAria: "auto",
+    socialLinksLabel: "Social links:",
+    footerAbout: "About",
+    footerContact: "Contact",
+    footerPrivacy: "Privacy Policy",
+    footerCopyright: "Copyright",
+    footerAllRights: "All rights reserved.",
+    heroTitleLine1: "Good Samaritan",
+    heroTitleLine2: "Frontier",
+    heroSubscribeRss: "Subscribe RSS",
+    heroRssAria: "RSS feed",
+    heroRssTitle: "RSS Feed",
+    heroTagline: "Bridging profit and purpose.",
+    heroDescription:
+      "Tokyo real estate, J-REIT, and Korea-Japan macro reports for practical cross-border decision-making.",
+    sectionFeatured: "Featured",
+    sectionRecentPosts: "Recent Posts",
+    sectionExploreTopics: "Explore by topic",
+    sectionMoreRecent: "More latest posts",
+    topicHubPostsLabel: "core posts",
+    allPosts: "All Posts",
+    topicsPageTitle: "Topic hubs",
+    topicsPageDesc:
+      "Four editorial axes—urban investment, macro & policy, Tokyo life, and essays—mapped to featured series posts.",
+    topicsEmpty: "Posts for this hub are being prepared.",
+    topicsFromHome: "Browse topic hubs",
+    heroImageAlt: "GSF panoramic city view",
+    postPrevious: "Previous Post",
+    postNext: "Next Post",
+    breadcrumbAriaLabel: "Breadcrumb",
+    breadcrumbHome: "Home",
+    breadcrumbPostsPage: "Posts (page {page})",
+    breadcrumbTagPaged: "{tag} (page {page})",
+    paginationAriaNav: "Pagination",
+    paginationPrev: "Prev",
+    paginationNext: "Next",
+    paginationPrevAria: "Go to previous page",
+    paginationNextAria: "Go to next page",
+    pageTitleSearch: "Search",
+    pageDescSearch: "Search across posts in any language.",
+    pageTitleTags: "Tags",
+    pageDescTags: "All tags used on posts.",
+    pageTitlePosts: "Posts",
+    pageDescPosts: "All published articles.",
+    tagPageTitlePrefix: "Tag:",
+    tagPageDesc: 'All articles with the tag “{tag}”.',
+    pageTitleArchives: "Archives",
+    pageDescArchives: "Posts grouped by year and month.",
+    notFoundTitle: "404 Not Found",
+    notFoundHeading: "Page Not Found",
+    notFoundBackHome: "Go back home",
+    sharePostLead: "Share this post:",
+    authorCardTitle: "About the author",
+    authorCardBody:
+      "Joseph (GSF) · Owner-occupier in Nihonbashi, Tokyo. Holds investment properties in Korea. Writes research-grade reports on Japan real estate, J-REIT, and Korea–Japan cross-border investing.",
+    authorCardAboutCta: "Read author profile",
+    authorCardContactCta: "Contact",
+    authorCardLinkedInCta: "Connect on LinkedIn",
+    authorCardXFollowCta: "Follow on X",
+    postFollowTitle: "Follow updates",
+    postFollowBody:
+      "Subscribe to the newsletter for weekly Tokyo real estate insights — or follow via RSS, X, and LinkedIn.",
+    postFollowRssCta: "Subscribe RSS",
+    copyCodeButton: "Copy",
+    copyCodeDone: "Copied",
+    devSearchWarnTitle: "Development mode",
+    devSearchWarnBody:
+      "Build the project at least once to load Pagefind search locally.",
+    backButton: "Go back",
+    dateUpdatedLabel: "Updated:",
+    newsletterTitle: "Stay informed",
+    newsletterBody:
+      "Get weekly Tokyo real estate insights, J-REIT analysis, and Korea-Japan macro updates delivered to your inbox.",
+    newsletterEmailLabel: "Email address",
+    newsletterPlaceholder: "your@email.com",
+    newsletterCta: "Subscribe",
+    newsletterDisclaimer:
+      "No spam. Unsubscribe anytime. Your email stays private.",
+    leadMagnetCta: "Free: Tokyo relocation D-90 checklist →",
+    highIntentCtaTitle: "Need help with your Japan project?",
+    highIntentCtaDisclosure:
+      "Author services (web & automation). Separate from this article’s editorial and investment content.",
+    highIntentCtaBodyFreelance:
+      "I build AI workflow automation and multilingual Astro/Vercel sites from Tokyo (KR/EN/JA). Small setups from ~¥50k — ask via contact or LinkedIn.",
+    highIntentCtaBodyMagnetOnly:
+      "Planning a move or cross-border setup? Start with the free checklist below.",
+    highIntentCtaMagnetLink: "Tokyo relocation D-90 checklist (free) →",
+    highIntentCtaContact: "Contact",
+    highIntentCtaLinkedIn: "LinkedIn",
+    commentsTitle: "Discussion",
+    commentsDescription:
+      "Share your thoughts — powered by GitHub Discussions.",
+    topicHubs: {
+      urbanInvestment: {
+        title: "Urban investment insight",
+        description:
+          "Tokyo offices, residential pricing, REITs, redevelopment, and rental yield vs capital gains.",
+      },
+      macroPolicy: {
+        title: "Macro & policy (Korea–Japan)",
+        description:
+          "FX, rates, cross-border tax and visa topics, corporate vs personal holding sketches.",
+      },
+      tokyoLife: {
+        title: "Tokyo life & local reports",
+        description:
+          "Neighborhood walks, food markets, street DNA, community notes, and family-friendly picks.",
+      },
+      essay: {
+        title: "Essays & investing philosophy",
+        description:
+          "Personal notes on mindset, moving, volatility, reading two markets, and post-mortems.",
+      },
+    } satisfies TopicHubCopy,
+  },
+  ko: {
+    skipToContent: "본문으로 건너뛰기",
+    openMenu: "메뉴 열기",
+    closeMenu: "메뉴 닫기",
+    navPosts: "글 목록",
+    navTags: "태그",
+    navContact: "연락",
+    navAbout: "소개",
+    navTopics: "주제 허브",
+    navArchives: "아카이브",
+    navSearch: "검색",
+    themeToggleTitle: "라이트/다크 테마 전환",
+    themeToggleAria: "테마",
+    socialLinksLabel: "소셜 링크:",
+    footerAbout: "소개",
+    footerContact: "연락",
+    footerPrivacy: "개인정보 처리방침",
+    footerCopyright: "Copyright",
+    footerAllRights: "All rights reserved.",
+    heroTitleLine1: "Good Samaritan",
+    heroTitleLine2: "Frontier",
+    heroSubscribeRss: "RSS 구독",
+    heroRssAria: "RSS 피드",
+    heroRssTitle: "RSS 피드",
+    heroTagline: "이윤과 목적을 잇습니다.",
+    heroDescription:
+      "도쿄 부동산·J-REIT·한일 거시경제 리포트를 바탕으로 실전 의사결정을 돕습니다.",
+    sectionFeatured: "추천 글",
+    sectionRecentPosts: "최근 글",
+    sectionExploreTopics: "주제별 바로가기",
+    sectionMoreRecent: "최신 글 더 보기",
+    topicHubPostsLabel: "핵심 글",
+    allPosts: "전체 글",
+    topicsPageTitle: "주제 허브",
+    topicsPageDesc:
+      "도시형 투자·한일 거시·도쿄 라이프·에세이 네 축으로 시리즈 글을 묶었습니다.",
+    topicsEmpty: "이 허브의 글을 준비 중입니다.",
+    topicsFromHome: "주제 허브 보기",
+    heroImageAlt: "GSF 비즈니스 히어로 이미지",
+    postPrevious: "이전 글",
+    postNext: "다음 글",
+    breadcrumbAriaLabel: "경로 탐색",
+    breadcrumbHome: "홈",
+    breadcrumbPostsPage: "글 목록 (페이지 {page})",
+    breadcrumbTagPaged: "{tag} (페이지 {page})",
+    paginationAriaNav: "페이지 탐색",
+    paginationPrev: "이전",
+    paginationNext: "다음",
+    paginationPrevAria: "이전 페이지",
+    paginationNextAria: "다음 페이지",
+    pageTitleSearch: "검색",
+    pageDescSearch: "모든 언어의 글에서 검색합니다.",
+    pageTitleTags: "태그",
+    pageDescTags: "글에 사용된 태그 목록입니다.",
+    pageTitlePosts: "글 목록",
+    pageDescPosts: "발행한 글을 모았습니다.",
+    tagPageTitlePrefix: "태그:",
+    tagPageDesc: "‘{tag}’ 태그가 붙은 글입니다.",
+    pageTitleArchives: "아카이브",
+    pageDescArchives: "연·월별로 묶은 글 목록입니다.",
+    notFoundTitle: "404 — 찾을 수 없음",
+    notFoundHeading: "페이지를 찾을 수 없습니다",
+    notFoundBackHome: "홈으로 돌아가기",
+    sharePostLead: "이 글 공유:",
+    authorCardTitle: "작성자 소개",
+    authorCardBody:
+      "Joseph(GSF) · 도쿄 니혼바시 자가 거주·소유. 한국 투자 물건 보유 중. 일본 부동산·J-REIT·한일 크로스보더 투자를 직접 경험을 바탕으로 기록합니다.",
+    authorCardAboutCta: "작성자 프로필 보기",
+    authorCardContactCta: "문의하기",
+    authorCardLinkedInCta: "LinkedIn 연결",
+    authorCardXFollowCta: "X에서 팔로우",
+    postFollowTitle: "업데이트 받기",
+    postFollowBody:
+      "뉴스레터로 매주 도쿄 부동산 인사이트를 받아보세요 — 또는 RSS·X·LinkedIn으로 팔로우하세요.",
+    postFollowRssCta: "RSS 구독",
+    copyCodeButton: "복사",
+    copyCodeDone: "복사됨",
+    devSearchWarnTitle: "개발 모드",
+    devSearchWarnBody:
+      "Pagefind 검색을 보려면 최소 한 번은 프로젝트를 빌드하세요.",
+    backButton: "뒤로",
+    dateUpdatedLabel: "수정:",
+    newsletterTitle: "인사이트 받아보기",
+    newsletterBody:
+      "도쿄 부동산 분석, J-REIT, 한일 거시 동향을 매주 이메일로 보내드립니다.",
+    newsletterEmailLabel: "이메일 주소",
+    newsletterPlaceholder: "your@email.com",
+    newsletterCta: "구독하기",
+    newsletterDisclaimer:
+      "스팸 없음. 언제든 구독 해지 가능. 이메일은 안전하게 보호됩니다.",
+    leadMagnetCta: "무료: 도쿄 이주 D-90 체크리스트 →",
+    highIntentCtaTitle: "일본 관련 프로젝트가 필요하신가요?",
+    highIntentCtaDisclosure:
+      "작성자 제공 서비스(웹·자동화) 안내입니다. 본문의 투자·편집 콘텐츠와는 별개입니다.",
+    highIntentCtaBodyFreelance:
+      "도쿄 거주 개발자(GSF)입니다. AI 업무 자동화·Astro/Vercel 다국어 사이트 구축을 합니다. 소규모 세팅 ¥5만円〜 — 문의 또는 LinkedIn으로 연락 주세요.",
+    highIntentCtaBodyMagnetOnly:
+      "이주·크로스보더 준비 중이시라면 아래 무료 체크리스트부터 보세요.",
+    highIntentCtaMagnetLink: "도쿄 이주 D-90 체크리스트 (무료) →",
+    highIntentCtaContact: "문의하기",
+    highIntentCtaLinkedIn: "LinkedIn",
+    commentsTitle: "댓글",
+    commentsDescription:
+      "의견을 남겨주세요 — GitHub Discussions 기반입니다.",
+    topicHubs: {
+      urbanInvestment: {
+        title: "도시형 투자 인사이트",
+        description:
+          "도쿄 오피스·주거 단가, 리츠, 재개발, 임대 수익과 시세 차익 등 실물 중심 분석.",
+      },
+      macroPolicy: {
+        title: "한일 거시·정책",
+        description:
+          "환율·금리, 상속·증여, 비자 경로, 법인 vs 개인 보유 등 제도·거시 이슈.",
+      },
+      tokyoLife: {
+        title: "도쿄 라이프·로컬 리포트",
+        description:
+          "동네 산책, 시장 이전 이야기, 거리 비교, 커뮤니티, 가족 코스 등 현장형 글.",
+      },
+      essay: {
+        title: "에세이·투자 철학",
+        description:
+          "마음가짐, 이사와 계약, 환율 변동, 두 시장 읽기, 투자 복기 등 개인적 기록.",
+      },
+    } satisfies TopicHubCopy,
+  },
+  ja: {
+    skipToContent: "本文へスキップ",
+    openMenu: "メニューを開く",
+    closeMenu: "メニューを閉じる",
+    navPosts: "記事一覧",
+    navTags: "タグ",
+    navContact: "お問い合わせ",
+    navAbout: "について",
+    navTopics: "トピックハブ",
+    navArchives: "アーカイブ",
+    navSearch: "検索",
+    themeToggleTitle: "ライト／ダークの切り替え",
+    themeToggleAria: "テーマ",
+    socialLinksLabel: "ソーシャルリンク:",
+    footerAbout: "について",
+    footerContact: "お問い合わせ",
+    footerPrivacy: "プライバシーポリシー",
+    footerCopyright: "Copyright",
+    footerAllRights: "All rights reserved.",
+    heroTitleLine1: "Good Samaritan",
+    heroTitleLine2: "Frontier",
+    heroSubscribeRss: "RSSを購読",
+    heroRssAria: "RSSフィード",
+    heroRssTitle: "RSSフィード",
+    heroTagline: "利益と目的のはざまを橋渡しする。",
+    heroDescription:
+      "東京不動産・J-REIT・日韓マクロ経済レポートを軸に、実務的な意思決定を支援します。",
+    sectionFeatured: "おすすめ",
+    sectionRecentPosts: "最近の記事",
+    sectionExploreTopics: "トピック別に探す",
+    sectionMoreRecent: "最新記事をもっと見る",
+    topicHubPostsLabel: "主要記事",
+    allPosts: "すべての記事",
+    topicsPageTitle: "トピックハブ",
+    topicsPageDesc:
+      "都市型投資・日韓マクロ・東京ライフ・エッセイの4軸でシリーズ記事を整理しています。",
+    topicsEmpty: "このハブの記事を準備中です。",
+    topicsFromHome: "トピックハブを見る",
+    heroImageAlt: "GSF ヒーローイメージ",
+    postPrevious: "前の記事",
+    postNext: "次の記事",
+    breadcrumbAriaLabel: "パンくずリスト",
+    breadcrumbHome: "ホーム",
+    breadcrumbPostsPage: "記事一覧（ページ {page}）",
+    breadcrumbTagPaged: "{tag}（ページ {page}）",
+    paginationAriaNav: "ページ送り",
+    paginationPrev: "前へ",
+    paginationNext: "次へ",
+    paginationPrevAria: "前のページへ",
+    paginationNextAria: "次のページへ",
+    pageTitleSearch: "検索",
+    pageDescSearch: "すべての言語の記事を横断検索します。",
+    pageTitleTags: "タグ",
+    pageDescTags: "記事で使っているタグ一覧です。",
+    pageTitlePosts: "記事一覧",
+    pageDescPosts: "公開した記事をまとめています。",
+    tagPageTitlePrefix: "タグ:",
+    tagPageDesc: "タグ「{tag}」の記事一覧です。",
+    pageTitleArchives: "アーカイブ",
+    pageDescArchives: "年・月ごとに並べた記事一覧です。",
+    notFoundTitle: "404 Not Found",
+    notFoundHeading: "ページが見つかりません",
+    notFoundBackHome: "ホームに戻る",
+    sharePostLead: "この記事を共有:",
+    authorCardTitle: "著者について",
+    authorCardBody:
+      "Joseph (GSF) · 東京・日本橋の分譲マンションに自己居住・所有。韓国に投資用物件を保有。日本不動産・J-REIT・日韓クロスボーダー投資を実体験をもとに発信しています。",
+    authorCardAboutCta: "著者プロフィールを見る",
+    authorCardContactCta: "お問い合わせ",
+    authorCardLinkedInCta: "LinkedInでつながる",
+    authorCardXFollowCta: "Xでフォロー",
+    postFollowTitle: "更新を受け取る",
+    postFollowBody:
+      "ニュースレターで毎週の東京不動産インサイトを受け取れます — またはRSS・X・LinkedInでフォロー。",
+    postFollowRssCta: "RSSを購読",
+    copyCodeButton: "コピー",
+    copyCodeDone: "コピーしました",
+    devSearchWarnTitle: "開発モード",
+    devSearchWarnBody:
+      "Pagefind の検索を表示するには、一度プロジェクトをビルドしてください。",
+    backButton: "戻る",
+    dateUpdatedLabel: "更新:",
+    newsletterTitle: "インサイトを受け取る",
+    newsletterBody:
+      "東京不動産分析、J-REIT、日韓マクロ動向を毎週メールでお届けします。",
+    newsletterEmailLabel: "メールアドレス",
+    newsletterPlaceholder: "your@email.com",
+    newsletterCta: "購読する",
+    newsletterDisclaimer:
+      "スパムなし。いつでも解除可能。メールは安全に保護されます。",
+    leadMagnetCta: "無料：東京移住 D-90 チェックリスト →",
+    highIntentCtaTitle: "日本関連のプロジェクトでお困りですか？",
+    highIntentCtaDisclosure:
+      "著者提供のサービス（Web・自動化）です。本記事の投資・編集内容とは別枠です。",
+    highIntentCtaBodyFreelance:
+      "東京在住の開発者（GSF）です。AI業務自動化・Astro/Vercelの多言語サイト構築が専門です。小規模なら5万円〜 — お問い合わせまたはLinkedInでご連絡ください。",
+    highIntentCtaBodyMagnetOnly:
+      "移住・クロスボーダーの準備中なら、まず無料チェックリストをご覧ください。",
+    highIntentCtaMagnetLink: "東京移住 D-90 チェックリスト（無料）→",
+    highIntentCtaContact: "お問い合わせ",
+    highIntentCtaLinkedIn: "LinkedIn",
+    commentsTitle: "ディスカッション",
+    commentsDescription:
+      "ご意見をお聞かせください — GitHub Discussionsベースです。",
+    topicHubs: {
+      urbanInvestment: {
+        title: "都市型投資インサイト",
+        description:
+          "東京オフィス・住宅の単価、リート、再開発、利回りとキャピタルゲインの整理。",
+      },
+      macroPolicy: {
+        title: "日韓マクロ・政策",
+        description:
+          "為替・金利、相続・贈与、在留ルート、法人と個人の保有スケッチなど。",
+      },
+      tokyoLife: {
+        title: "東京ライフ・ローカル",
+        description:
+          "街歩き、市場の移転、通りの比較、コミュニティ、家族向けスポットなど。",
+      },
+      essay: {
+        title: "エッセイ・投資観",
+        description:
+          "姿勢、引越しと契約、為替の揺れ、二市場の読み方、振り返りなど。",
+      },
+    } satisfies TopicHubCopy,
+  },
+} as const;
+
+export type UiKey = keyof typeof ui.en;
+
+export function getUi(lang: UiLang): (typeof ui)[UiLang] {
+  return ui[lang] ?? ui.en;
+}
+
+/** For routes without `[...locale]` (404, archives): follow `SITE.lang` when it is a UI locale. */
+export function defaultUiLang(): UiLang {
+  const l: string = SITE.lang;
+  if (l === "ko" || l === "ja" || l === "en") return l;
+  return "en";
+}
