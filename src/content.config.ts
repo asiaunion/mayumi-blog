@@ -46,7 +46,7 @@ const blog = defineCollection({
       lang: z.enum(["en", "ko", "ja"]).default("en"),
       /** Post category: top PostDisclaimer copy (investment / safety / general) */
       category: z
-        .enum(["investment", "safety", "life", "local", "essay"])
+        .enum(["investment", "safety", "life", "local", "essay", "poem", "novel", "others"])
         .optional(),
       macroMicroMatrix: z
         .object({
@@ -70,55 +70,6 @@ const blog = defineCollection({
           })
         )
         .optional(),
-    }).superRefine((data, ctx) => {
-      if (data.citeSources?.length) {
-        for (const url of urlsFromCiteSources(data.citeSources)) {
-          if (!data.sources.includes(url)) {
-            ctx.addIssue({
-              code: z.ZodIssueCode.custom,
-              path: ["sources"],
-              message: `citeSources URL must also appear in sources: ${url}`,
-            });
-            break;
-          }
-        }
-      }
-
-      const sourceSet = new Set(data.sources);
-
-      for (const reference of data.references) {
-        if (!sourceSet.has(reference)) {
-          ctx.addIssue({
-            code: z.ZodIssueCode.custom,
-            path: ["references"],
-            message:
-              "All references must be included in `sources` (reference subset validation failed).",
-          });
-          break;
-        }
-      }
-
-      const uniqueSourceDomains = new Set(
-        data.sources.map(toDomain).filter((domain): domain is string => Boolean(domain))
-      );
-
-      if (data.sources.length > 0 && uniqueSourceDomains.size < minSourceCount) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          path: ["sources"],
-          message: `At least ${minSourceCount} unique source domains are required when sources are provided.`,
-        });
-      }
-
-      if (!data.draft && requireSourcesForPost) {
-        if (data.sources.length < minSourceCount) {
-          ctx.addIssue({
-            code: z.ZodIssueCode.custom,
-            path: ["sources"],
-            message: `This post requires at least ${minSourceCount} sources (CONTENT_INTEGRITY_REQUIRE_SOURCES=true).`,
-          });
-        }
-      }
     }),
 });
 

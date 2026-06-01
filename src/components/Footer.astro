@@ -1,9 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import Socials from "./Socials.astro";
 import { getUi, type UiLang } from "@/i18n/ui";
-
-const currentYear = new Date().getFullYear();
 
 type Props = {
   noMarginTop?: boolean;
@@ -17,40 +14,28 @@ const {
   ...attrs
 } = Astro.props;
 
+const currentYear = new Date().getFullYear();
 const { locale } = Astro.params;
 const lang = (
   uiLangProp ??
-  (locale === "ko" || locale === "ja" ? locale : "en")
+  (locale === "ko" || locale === "ja" ? locale : "ja")
 ) as UiLang;
-const l = lang === "en" ? "" : `/${lang}`;
+const l = lang === "ja" ? "" : `/${lang}`;
 const L = getUi(lang);
 ---
 
 <footer
-  class:list={["app-layout", { "mt-auto": !noMarginTop }, className]}
+  class:list={["app-layout pb-12 pt-16 mt-20 text-center border-t border-border/50", { "mt-auto": !noMarginTop }, className]}
   {...attrs}
 >
-  <div
-    class:list={[
-      "py-6 sm:py-4",
-      "border-t border-border",
-      "flex flex-col items-center justify-between sm:flex-row-reverse",
-    ]}
-  >
-    <Socials />
-    <div class="my-2 flex flex-col items-center sm:flex-row">
-      <div class="flex items-center text-sm opacity-80 mb-2 sm:mb-0 sm:mr-6 gap-3">
-        <a href={`${l}/about/`} class="link-subtle">{L.footerAbout}</a>
-        <span>&middot;</span>
-        <a href={`${l}/contact/`} class="link-subtle">{L.footerContact}</a>
-        <span>&middot;</span>
-        <a href={`${l}/privacy-policy/`} class="link-subtle">{L.footerPrivacy}</a>
-      </div>
-      <div class="flex items-center whitespace-nowrap opacity-80 text-sm">
-        <span>{L.footerCopyright} &#169; {currentYear}</span>
-        <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
-        <span>{L.footerAllRights}</span>
-      </div>
-    </div>
+  <p class="font-serif italic text-foreground/70 mb-6 text-sm tracking-wide">
+    "And into the forest I go, to lose my mind and find my soul."
+  </p>
+  <div class="flex justify-center space-x-8 text-xs uppercase tracking-[0.15em] text-foreground/60 mb-8 font-serif">
+    <a href={`${l}/about/`} class="hover:text-accent transition-colors">{L.footerAbout}</a>
+    <a href={`${l}/contact/`} class="hover:text-accent transition-colors">{L.footerContact}</a>
   </div>
+  <p class="text-[0.65rem] text-foreground/40 font-sans tracking-widest uppercase">
+    {L.footerCopyright} &#169; {currentYear} MAYUMI PHOEBE. All rights reserved.
+  </p>
 </footer>

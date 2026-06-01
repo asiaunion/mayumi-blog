@@ -5,15 +5,22 @@
 
 ## 스냅샷 목록
 
-### 1. v-approved-20260601-typography-base
+### 1. v-approved-20260601-magazine-layout-final (최종 컨펌)
+- **날짜**: 2026년 6월 1일
+- **승인 내용**: 잡지 감성의 홈 페이지 레이아웃, 헤더, 푸터 전체 컨펌
+- **디자인 사양**:
+  - **헤더**: 중앙에 `Mayumi Phoebe` 2줄 배치 (Playfair Display), 좌측 언어선택, 우측 최소한의 메뉴(POSTS, TAGS)
+  - **메인**: 큰 썸네일과 명조체 타이틀로 이루어진 Magazine Hero 섹션과, 하단의 3단 그리드 카드(Latest Works)
+  - **푸터**: 이탤릭체 명조 인용구 삽입, 미니멀한 저작권/링크 배치
+  - **다국어**: 일본어(JA) 메인, 한국어(KO) 서브
+
+### 2. v-approved-20260601-typography-base
 - **날짜**: 2026년 6월 1일
 - **승인 내용**: 매거진 스타일 기초 타이포그래피 및 컬러 팔레트 베이스라인 확정
 - **디자인 사양**:
   - **배경색**: 미색 (Off-white, `#faf9f6`)
   - **텍스트색**: 차콜 (Charcoal, `#333333`)
-  - **강조색(Accent)**: 어스 브라운 (Earthy Brown, `#8b5e3c`)
-  - **폰트 (영문)**: `Playfair Display`, serif
-  - **폰트 (한국어/일본어)**: `Noto Serif KR` / `Noto Serif JP`, serif
   - **특수 타이포그래피**: 첫 문단 우아한 드롭캡(Drop Cap, 4.2em) 적용, 따옴표(`“`)가 크게 들어간 클래식 Blockquote 스타일
-- **스크린샷**:
-  - *[Placeholder: 브라우저 환경 제약으로 스크린샷 생략. `snapshots/` 폴더에 추후 수동 추가 요망]*
+
+## 스크린샷
+- *[Placeholder: 브라우저 환경 제약으로 스크린샷 생략. `snapshots/` 폴더에 추후 수동 추가 요망]*
