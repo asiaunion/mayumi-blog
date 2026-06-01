@@ -47,6 +47,17 @@
       @apply my-[0.05625rem];
     }
 
+    /* Drop Cap for the very first paragraph in the article */
+    & > p:first-of-type:not(.post-section-heading)::first-letter {
+      float: left;
+      font-size: 4.2em;
+      line-height: 0.8;
+      padding-top: 0.1rem;
+      padding-right: 0.5rem;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
     /*
       Numbered section headings (`<p class="post-section-heading">` in MD).
       Must use `p.post-section-heading` + `margin-block-*` so we win over Tailwind Typography’s
@@ -145,7 +156,12 @@
     }
 
     blockquote {
-      @apply wrap-break-word border-s-2 border-s-accent/35 bg-muted/30 py-2 ps-4 text-foreground not-italic;
+      @apply relative wrap-break-word border-none bg-transparent py-4 pl-12 text-foreground italic;
+    }
+    blockquote::before {
+      content: "“";
+      @apply absolute left-0 -top-2 text-6xl text-accent/40 leading-none;
+      font-family: "Playfair Display", serif;
     }
 
     details {
