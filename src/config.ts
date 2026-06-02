@@ -1,16 +1,16 @@
-/** LinkedIn / X for About, Person JSON-LD `sameAs`, and header social links. Replace with your live URLs. */
+/** Social links for About, Person JSON-LD `sameAs`, and header. */
 export const PUBLIC_PROFILES = {
-  linkedIn: "https://www.linkedin.com/in/seungju-kim-3b3629260/?skipRedirect=true",
-  x: "https://x.com/asiaunion",
+  linkedIn: "https://mayumiphoebe.com/",
+  x: "https://mayumiphoebe.com/",
 } as const;
 
 export const SITE = {
-  website: "https://gsfark.com/", // replace this with your deployed domain
-  author: "GSF",
-  profile: "https://gsfark.com/",
-  desc: "Cross-border investment insights on Tokyo real estate, J-REIT, and Korea-Japan macro — weekly deep dives from Nihonbashi, Tokyo.",
-  title: "GSF Blog",
-  ogImage: "gsf-og-default.jpg",
+  website: "https://mayumiphoebe.com/", // replace this with your deployed domain
+  author: "Mayumi Phoebe",
+  profile: "https://mayumiphoebe.com/",
+  desc: "A personal space sharing essays, poems, and stories by Mayumi Phoebe.",
+  title: "Mayumi Phoebe",
+  ogImage: "mayumi-og-default.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,
