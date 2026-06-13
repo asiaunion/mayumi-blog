@@ -1,5 +1,8 @@
 ---
+import IconMoon from "@/assets/icons/IconMoon.svg";
+import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import LanguageSwitcher from "./LanguageSwitcher.astro";
+import { SITE } from "@/config";
 import { getUi, type UiLang } from "@/i18n/ui";
 
 type Props = { uiLang?: UiLang };
@@ -51,9 +54,21 @@ const isActive = (path: string) => {
     </div>
 
     <!-- 오른쪽: 메인 메뉴 -->
-    <nav class="flex w-1/4 justify-end items-center space-x-4 sm:space-x-8 text-xs sm:text-sm font-serif">
+    <nav class="flex w-1/4 justify-end items-center space-x-4 sm:space-x-6 text-xs sm:text-sm font-serif">
       <a href={`${l}/posts/`} class:list={["hover:text-accent uppercase tracking-widest", { "text-accent font-bold": isActive(`${l}/posts`) }]}>{L.navPosts}</a>
       <a href={`${l}/tags/`} class:list={["hover:text-accent uppercase tracking-widest", { "text-accent font-bold": isActive(`${l}/tags`) }]}>{L.navTags}</a>
+      {SITE.lightAndDarkMode && (
+        <button
+          id="theme-btn"
+          class="focus-outline relative size-8 rounded-sm p-1.5 transition-colors hover:[&>svg]:stroke-accent"
+          title={L.themeToggleTitle}
+          aria-label={L.themeToggleAria}
+          aria-live="polite"
+        >
+          <IconMoon class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+          <IconSunHigh class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+        </button>
+      )}
     </nav>
   </div>
 </header>

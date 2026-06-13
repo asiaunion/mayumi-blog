@@ -8,7 +8,7 @@ export const SITE = {
   website: "https://mayumiphoebe.com/", // replace this with your deployed domain
   author: "Mayumi Phoebe",
   profile: "https://mayumiphoebe.com/",
-  desc: "A personal space sharing essays, poems, and stories by Mayumi Phoebe.",
+  desc: "日々の祈りと思索、詩と物語を綴るパーソナルマガジン。",
   title: "Mayumi Phoebe",
   ogImage: "mayumi-og-default.jpg",
   lightAndDarkMode: true,
@@ -24,6 +24,6 @@ export const SITE = {
   },
   dynamicOgImage: true,
   dir: "ltr", // "rtl" | "auto"
-  lang: "en", // Keep aligned with astro.config defaultLocale to avoid mixed language signals.
-  timezone: "Asia/Seoul", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  lang: "ja", // Keep aligned with astro.config defaultLocale to avoid mixed language signals.
+  timezone: "Asia/Tokyo", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 } as const;

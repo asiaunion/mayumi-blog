@@ -18,26 +18,14 @@ interface Social {
 
 export const SOCIALS: Social[] = [
   {
-    name: "GitHub",
-    href: "https://github.com/asiaunion/GSF-Blog",
-    linkTitle: `${SITE.title} on GitHub`,
-    icon: IconGitHub,
-  },
-  {
     name: "X",
     href: PUBLIC_PROFILES.x,
     linkTitle: `${SITE.title} on X`,
     icon: IconBrandX,
   },
   {
-    name: "LinkedIn",
-    href: PUBLIC_PROFILES.linkedIn,
-    linkTitle: `${SITE.title} on LinkedIn`,
-    icon: IconLinkedin,
-  },
-  {
     name: "Mail",
-    href: "mailto:asiaunion@gmail.com",
+    href: "mailto:mayumiot@gmail.com",
     linkTitle: `Send an email to ${SITE.title}`,
     icon: IconMail,
   },
