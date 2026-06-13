@@ -50,3 +50,4 @@ output/
 scripts/notion-page-map.json
 workers/notion-poller/.wrangler/
 workers/notion-poller/node_modules/
+node_modules/.astro/
