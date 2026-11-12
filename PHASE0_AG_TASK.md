@@ -9,7 +9,7 @@
 
 ## 전제 사항
 
-- 프로젝트 루트: `/Users/gsf/GSF/projects/Mayumi-Blog`
+- 프로젝트 루트: `/Users/gsf/Workspace/projects/Mayumi-Blog`
 - 배포: Vercel (push 후 자동 배포)
 - 작업 완료 후 `git commit` 및 `git push`까지 실행할 것
 - 각 태스크 완료 시 완료 보고 (파일 경로 + 변경 내용 명시)
@@ -102,7 +102,7 @@ const theme = localStorage.getItem("theme") ?? "light";
 
 ### 구현 방법
 
-1. GSF-Blog(`/Users/gsf/GSF/projects/GSF-Blog`)의 Header.astro 또는 테마 토글 컴포넌트를 참조하여 동일 방식으로 구현
+1. GSF-Blog(`/Users/gsf/Workspace/projects/GSF-Blog`)의 Header.astro 또는 테마 토글 컴포넌트를 참조하여 동일 방식으로 구현
 2. 토글 버튼은 네비게이션 우측 끝에 배치
 3. `ui.ts`에 이미 정의된 키 반드시 활용:
    - `themeToggleTitle` / `themeToggleAria`

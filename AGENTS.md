@@ -1,6 +1,6 @@
 # GSF-Blog — Antigravity agent notes
 
-**Canonical path:** `/Users/gsf/GSF/projects/GSF-Blog`
+**Canonical path:** `/Users/gsf/Workspace/projects/GSF-Blog`
 
 ## Image work (auto — no extra user command)
 
@@ -142,7 +142,7 @@ Global rules: `~/.gemini/config/rules/agent_rules.md`
 이 프로젝트는 글로벌 헌법(GEMINI.md Tier 2.6)에 따라 `GSF-OS`를 중앙 지식 저장소로 사용합니다. 에이전트는 작업 전후로 다음의 라우팅 규칙과 Eval(검증) 절차를 강제로 수행해야 합니다.
 
 ### 1. 디렉토리 라우팅 규칙 (Knowledge Routing)
-- **위키 저장소 경로**: `/Users/gsf/GSF/projects/GSF-OS/` (글로벌 매핑: `projects/GSF-OS/`)
+- **위키 저장소 경로**: `/Users/gsf/Workspace/projects/GSF-OS/` (글로벌 매핑: `projects/GSF-OS/`)
 - GSF-Blog와 관련된 모든 아키텍처 결정, 에러 해결 노트(Notion 파이프라인, Astro 빌드 충돌 등), 방어 로직 가이드는 이 프로젝트 내부가 아닌 위 경로의 `Wiki/` 폴더에 단일 저장(SSOT)됩니다.
 
 ### 2. Pre-Coding Eval (검색 강제 조항)
